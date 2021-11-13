@@ -2,7 +2,11 @@
 
 require "public_functions.php";
 usleep(mt_rand(100, 10000));
-$linhas = 100000;
+if ($argc < 1) {
+    echo "Você deve digitar o argumento numero de linhas que serão lidos. Ex: php execute_sorts.php [num1] ";
+    exit();
+}
+$linhas = $argv[1];
 
 //Bubble Sort
 echo "iniciando o Bubble Sort...\n";
