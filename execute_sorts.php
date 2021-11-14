@@ -15,7 +15,8 @@ $time_start1 = microtime(true);
 bubblesort($csvData1,sizeof($csvData1)); 
 $time_end1 = microtime(true);
 $execution_time1 = ($time_end1 - $time_start1);
-echo "Tempo total de execução de ".$linhas." linhas após o bubble sort foi de : ".$execution_time1." segundos\n";
+$execution_time1 = number_format((float)$execution_time1, 4, '.', '');
+echo "Tempo total de execução de ".$linhas." linhas após o bubble sort foi de : ".$execution_time1." segundos \n";
 
 //Selection Sort
 echo "\niniciando o Selection Sort...\n";
@@ -24,7 +25,8 @@ $time_start2 = microtime(true);
 selectionsort($csvData2,sizeof($csvData2));
 $time_end2 = microtime(true);
 $execution_time2 = ($time_end2 - $time_start2);
-echo "Tempo total de execução de ".$linhas." linhas após o Selection sort foi de : ".$execution_time2." segundos\n";
+$execution_time2 = number_format((float)$execution_time2, 4, '.', '');
+echo "Tempo total de execução de ".$linhas." linhas após o Selection sort foi de : ".$execution_time2." segundos \n";
 
 //Insertion Sort
 echo "\niniciando o Insertion Sort...\n";
@@ -33,7 +35,8 @@ $time_start3 = microtime(true);
 insertionsort($csvData3,sizeof($csvData3));
 $time_end3 = microtime(true);
 $execution_time3 = ($time_end3 - $time_start3);
-echo "Tempo total de execução de ".$linhas." linhas após o Insertion sort foi de : ".$execution_time3." segundos\n";
+$execution_time3 = number_format((float)$execution_time3, 4, '.', '');
+echo "Tempo total de execução de ".$linhas." linhas após o Insertion sort foi de : ".$execution_time3." segundos \n";
 
 //Quick Sort
 echo "\niniciando o Quick Sort...\n";
@@ -42,7 +45,8 @@ $time_start4 = microtime(true);
 quicksort($csvData4,0,sizeof($csvData4)-1);
 $time_end4 = microtime(true);
 $execution_time4 = ($time_end4 - $time_start4);
-echo "Tempo total de execução de ".$linhas." linhas após o Quick sort foi de : ".$execution_time4." segundos\n";
+$execution_time4 = number_format((float)$execution_time4, 4, '.', '');
+echo "Tempo total de execução de ".$linhas." linhas após o Quick sort foi de : ".$execution_time4." segundos \n";
 
 //Merge Sort
 echo "\niniciando o Merge Sort...\n";
@@ -51,7 +55,8 @@ $time_start5 = microtime(true);
 mergesort($csvData5,0,sizeof($csvData5)-1);
 $time_end5 = microtime(true);
 $execution_time5 = ($time_end5 - $time_start5);
-echo "Tempo total de execução de ".$linhas." linhas após o Merge sort foi de : ".$execution_time5." segundos\n";
+$execution_time5 = number_format((float)$execution_time5, 4, '.', '');
+echo "Tempo total de execução de ".$linhas." linhas após o Merge sort foi de : ".$execution_time5." segundos \n";
 
 //Heap Sort
 echo "\niniciando o Heap Sort...\n";
@@ -60,19 +65,16 @@ $time_start6 = microtime(true);
 heapsort($csvData6,sizeof($csvData6));
 $time_end6 = microtime(true);
 $execution_time6 = ($time_end6 - $time_start6);
+$execution_time6 = number_format((float)$execution_time6, 4, '.', '');
+echo "Tempo total de execução de ".$linhas." linhas após o Heap sort foi de : ".$execution_time6." segundos \n";
 
-
-// for ($i = 0; $i < sizeof($csvData6); $i++) {
-//     echo $csvData6[$i][0]."\n"; 
-// }
-// echo "\n\n";
-// echo "Tempo total de execução de ".$linhas." linhas após o Heap sort foi de : ".$execution_time6." segundos\n";
-
-$ranking = array($execution_time1,$execution_time2,$execution_time3,$execution_time4,$execution_time5,$execution_time6);
-insertionsort($ranking,sizeof($ranking));
+$ranking = array($execution_time1." - Bubble sort",$execution_time2." - Selection Sort",
+$execution_time3." - Insertion sort",$execution_time4." - Quick sort",
+$execution_time5." - Merge sort",$execution_time6." - Heap sort");
+sort($ranking);
 echo "Ranking das execuções: \n";
 for ($i = 0; $i < sizeof($ranking); $i++) {
-    echo ($i+1).".o : ".$ranking[$i]."\n"; 
+    echo ($i+1)."º : ".$ranking[$i]."\n"; 
 }
 echo "\n\n";
 ?>
