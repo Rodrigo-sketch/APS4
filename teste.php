@@ -1,20 +1,30 @@
+
 <?php
+// Array representing a possible record set returned from a database
+$records = array(
+    array(
+        'id' => 2135,
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+    ),
+    array(
+        'id' => 3245,
+        'first_name' => 'Sally',
+        'last_name' => 'Smith',
+    ),
+    array(
+        'id' => 5342,
+        'first_name' => 'Jane',
+        'last_name' => 'Jones',
+    ),
+    array(
+        'id' => 5623,
+        'first_name' => 'Peter',
+        'last_name' => 'Doe',
+    )
+);
 
-require "public_functions.php";
-usleep(mt_rand(100, 10000));
-$linhas = 100;
-$csvData = readCSV("metadados_APS.csv",$linhas);
-
-//Insertion Sort
-echo "\niniciando o Insertion Sort...\n";
-$time_start = microtime(true);
-mergesort($csvData,0,sizeof($csvData));
-$time_end = microtime(true);
-$execution_time = ($time_end - $time_start);
-
-
-for ($i = 0; $i < sizeof($csvData); $i++) {
-    echo $csvData[$i][0]."\n"; 
-}
-echo "\n\n";
-echo "Tempo total de execução de ".$linhas." linhas após o sort foi de : ".$execution_time." segundos\n\n\n";
+$first_names = array_column($records, 'first_name');
+sort($first_names);
+print_r($first_names);
+?>
