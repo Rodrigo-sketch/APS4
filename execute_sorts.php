@@ -2,7 +2,6 @@
 
 require "public_functions.php";
 usleep(mt_rand(100, 10000));
-$mem = memory_get_usage();
 
 define("PADRAO","\033[0m");
 define("VERMELHO","\033[31m");
@@ -156,9 +155,9 @@ if ($sort==7){
         echo " -\t".AZUL.$results[$i]['name'].PADRAO."\n";  
         $total = $total + $results[$i]['value'];
     }
+    echo "Tempo total de todos: ".$total;
 }
-echo "Tempo total de todos: ".$total;
-echo "\nMemória usada: ". number_format((memory_get_usage() - $mem) / (1024 * 1024),4)." MegaBytes";
+
 echo "\n\n";
 
 $continuar = (string) readline('Deseja continuar? (S/N): ');
