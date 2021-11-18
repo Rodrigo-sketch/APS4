@@ -143,6 +143,7 @@ switch ($sort) {
         break;
     }
 
+    $total = 0;
 if ($sort==7){
     foreach ($results as $key => $row) {
         $name[$key]  = $row['name'];
@@ -153,8 +154,10 @@ if ($sort==7){
     for ($i = 0; $i < sizeof($results); $i++) {
         echo ($i+1)."º : ".VERMELHO.$results[$i]['value']." segundos ".PADRAO."\t";
         echo " -\t".AZUL.$results[$i]['name'].PADRAO."\n";  
+        $total = $total + $results[$i]['value'];
     }
 }
+echo "Tempo total de todos: ".$total;
 echo "\nMemória usada: ". number_format((memory_get_usage() - $mem) / (1024 * 1024),4)." MegaBytes";
 echo "\n\n";
 
